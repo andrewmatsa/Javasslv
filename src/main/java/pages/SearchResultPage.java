@@ -52,9 +52,7 @@ public class SearchResultPage {
 
     public void selectCheckboxes(){
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(".msga2.pp0 > *:first-child")));
-
         List<WebElement> listings = webDriver.findElements(By.cssSelector(".msga2.pp0 > *:first-child"));
-
         Random r = new Random();
 
         for (int i = 0; i < 3; i++) {
