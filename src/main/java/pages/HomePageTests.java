@@ -68,6 +68,9 @@ public class HomePageTests {
         System.out.println("Step 8: Add to memo");
         website.searchResultPage().addToMemo();
 
+        System.out.println("Step 9: Open memo and check that the ads on the page match the previously selected");
+        website.searchResultPage().clickBookmarks();
+        website.favoritesPage().verifyFavoriteUrl();
     }
 
 }

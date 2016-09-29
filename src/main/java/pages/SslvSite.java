@@ -17,4 +17,6 @@ public class SslvSite {
 
     public SearchResultPage searchResultPage() { return new SearchResultPage(webDriver);}
 
+    public FavoritesPage favoritesPage() { return new FavoritesPage(webDriver);}
+
 }

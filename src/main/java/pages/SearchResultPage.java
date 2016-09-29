@@ -30,6 +30,9 @@ public class SearchResultPage {
     @FindBy(id = "a_fav_sel")
     WebElement clickAddToMemo;
 
+    @FindBy(css = "a[href='/ru/favorites/']")
+    WebElement clickBookmarks;
+
     public SearchResultPage(WebDriver driver){
         webDriver = driver;
         wait = new WebDriverWait(webDriver, 30);
@@ -51,15 +54,24 @@ public class SearchResultPage {
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector(".msga2.pp0 > *:first-child")));
 
         List<WebElement> listings = webDriver.findElements(By.cssSelector(".msga2.pp0 > *:first-child"));
+
         Random r = new Random();
-        int randomValue = r.nextInt(listings.size());
-        listings.get(randomValue).click();
+
+        for (int i = 0; i < 3; i++) {
+            int randomValue = r.nextInt(listings.size());
+            listings.get(randomValue).click();
+        }
     }
 
     public void addToMemo(){
         ((JavascriptExecutor)webDriver).executeScript("scroll(0,400)");
         wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.id("a_fav_sel")));
         clickAddToMemo.click();
+    }
+
+    public void clickBookmarks(){
+        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.cssSelector("a[href='/ru/favorites/']")));
+        clickBookmarks.click();
     }
 
 }
